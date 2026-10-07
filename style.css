@@ -1,0 +1,67 @@
+@layer base, other;
+
+@layer base{
+    *{
+        margin: 0px;
+        padding: 0px;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+}
+
+@layer other{
+    body{
+        background-color: gainsboro;
+    }
+
+    nav, footer{
+        color: white;
+        background-color:black;
+        text-decoration: none;
+        text-align: center;
+        margin: 0px;
+    }
+
+    .section{
+        margin: 100px 500px 100px 500px;
+    }
+
+    h2, a, p{
+        padding: 10px;
+    }
+
+    h1{
+        text-align: center;
+    }
+
+    #ProjectHolder{
+        display: flex;
+        justify-content: center;
+    }
+
+    .project{
+        border-radius: 5px;
+        background-color: white;
+        text-align: start;
+        width: 350px;
+        height: 150px;
+        margin: 10px;
+    }
+
+    #ContactMe{
+        text-align: center;
+    }
+
+    input{
+        width: 70%;
+        height: 30px;
+        margin: 10px;
+    }
+
+    button{
+        color: white;
+        background-color: black;
+        width: 45%;
+        height: 30px;
+        margin: 10px;
+    }
+}
