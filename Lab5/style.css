@@ -1,0 +1,82 @@
+.movieForm {
+    width: 600px;
+    background-color: aliceblue;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.movieForm input,
+.movieForm select,
+.movieForm textarea{
+    box-sizing: border-box;
+    width: 90%;
+    padding: 10px;
+    margin: 5px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button{
+    box-sizing: border-box;
+    width: 90%;
+    padding: 10px;
+    margin: 5px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.movieForm textarea {
+    resize: vertical;
+}
+
+.movieForm label {
+    font-weight: bold;
+    margin: 5px;
+    align-self: flex-start;
+    margin-left: 5%;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#list{
+    margin-top: 10px;
+}
+
+.movieReview{
+    width: 600px;
+    background-color: aliceblue;
+    margin: 5px auto;
+}
+
+.movieTitle {
+    margin: 0;
+    font-weight: bold;
+}
+
+.movieRating {
+    color: #f5a623;
+    white-space: nowrap;
+}
+
+.reviewText {
+    margin: 15px 0 0;
+    padding-top: 12px;
+    border-top: 1px solid #ccc;
+    color: #333;
+}

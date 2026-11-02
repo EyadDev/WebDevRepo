@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React Hello World</title>
+
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const root = ReactDOM.createRoot(
+            document.getElementById('root')
+        );
+
+        function getName(){
+            return document.getElementById("name").value;
+        }
+        
+        function getRev(){
+            return document.getElementById("review").value;
+        }
+        
+        function getRating(){
+            const rate = Number(document.getElementById("rating").value);
+
+            switch(rate){
+                case 1:
+                    return "⭐";
+                case 2:
+                    return "⭐⭐";
+                case 3:
+                    return "⭐⭐⭐";
+                case 4:
+                    return "⭐⭐⭐⭐";
+                case 5:
+                    return "⭐⭐⭐⭐⭐";
+
+                return "";
+            }
+        }
+
+        function MovieReview({ onDelete }){
+            return (<div className="movieReview">
+                        <div className="reviewHeader">
+                            <h2 className="movieTitle">{getName()}</h2>
+                            <div className="movieRating">{getRating()}</div>
+                        </div>
+                        <p className="reviewText">
+                            {getRev()}
+                        </p>
+                        <button onClick={onDelete}> delete </button>
+                    </div>);
+        }
+
+        function MovieForm(){
+            return (
+                <div className="movieForm"> 
+                    <label>Movie Name</label>
+                    <input id="name" type="text" placeholder="Enter text..." />
+
+                    <label>Rating</label>
+                    <select id="rating" defaultValue="">
+                        <option value="" disabled>Select an option</option>
+                        <option value="1">1 Star</option>
+                        <option value="2">2 Star</option>
+                        <option value="3">3 Star</option>
+                        <option value="4">4 Star</option>
+                        <option value="5">5 Star</option>
+                    </select>
+
+                    <label>Review</label>
+                    <textarea id="review" rows="6" placeholder="Enter a longer message..." />
+                </div>
+            );
+        }
+
+        function ReviewList(){
+            const [reviews, setReviews] = React.useState([]);
+
+            function addReview() {
+                setReviews([...reviews, <MovieReview/>]);
+            }
+            
+            function deleteReview(index) {
+                setReviews(reviews.filter((_, i) => i !== index));
+            }       
+
+            return (<div>
+                    <button onClick={addReview}> Submit Review </button>
+                    <div id="list"> 
+                         {reviews.map((review, index) =>
+                            React.cloneElement(review, {
+                                key: review.key,
+                                onDelete: () => deleteReview(index)
+                            })
+                        )}
+                    </div>
+                </div>
+            );
+        }
+
+        function App() {
+            return (<div>
+                        <MovieForm/>
+                        <ReviewList/>
+                    </div>);
+        }
+
+        root.render(<App />);
+    </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 4</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Todo App</h1>
+        
+        <div class="input-group">
+            <input id="textBar" type="text" placeholder="What needs doing?">
+            <button id="add" class="btn-add">Add</button>
+        </div>
+
+        <div class="controls-bar">
+            <div class="filter-buttons">
+                <button id="all" class="btn-filter active">All</button>
+                <button id="active" class="btn-filter">Active</button>
+                <button id="completed" class="btn-filter">Completed</button>
+            </div>
+        </div>
+
+        <ul id="taskList">
+        </ul>
+
+        <div class="footer-bar">
+            <h3 id="itemsText">0 items left</h3>
+            <div class="clear-buttons">
+                <button id="clear-comp" class="btn-clear">Clear completed</button>
+                <button id="clear-all" class="btn-clear">Clear all</button>
+            </div>
+        </div>
+    </div>
+<script src="app.js"></script>
+</body>
+</html>
